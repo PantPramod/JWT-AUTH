@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 import jwt from 'jsonwebtoken'
 import sendEmailVerificationLink from '../helper/sendMail.js'
+import {signupEmailTemplate} from '../helper/EmailTemplate.js'
 
 const userSchema = new mongoose.Schema({
     email: {
@@ -46,7 +47,7 @@ userSchema.post('save', async (doc) => {
     const receiver = doc.email
     const token = jwt.sign({ userId: doc._id , email:doc.email}, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '120m' })
 
-    sendEmailVerificationLink(sender, password, receiver, doc, token)
+    sendEmailVerificationLink(sender, password, receiver, token, signupEmailTemplate, "Sign Up Verification")
 })
 
 const User = mongoose.model('user', userSchema)

@@ -5,6 +5,8 @@ import { Toaster } from 'react-hot-toast';
 import EmailVerification from "./pages/EmailVerification";
 import Login from "./pages/Login";
 import ProtectedRoutes from "./pages/ProtectedRoutes";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 
 
@@ -20,6 +22,8 @@ const App = () => {
             <Route path='/posts' element={<Posts />} />
           </Route>
           <Route path="/verify" element={<EmailVerification />}></Route>
+          <Route path="/forgotpassword" element={<ForgotPassword />}></Route>
+          <Route path="/resetpassword" element={<ResetPassword />}></Route>
         </Routes>
       </BrowserRouter>
     </>

@@ -6,7 +6,7 @@ import useAuth from "../AuthContext/useAuth"
 
 
 const Login = () => {
-    const { saveToken , saveRefreshToken} = useAuth()
+    const { saveToken, saveRefreshToken } = useAuth()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
@@ -46,6 +46,8 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
+
+            <Link to="/forgotpassword" className="text-sm mt-2 text-gray-600 hover:text-black">Forgot Password click here.</Link>
 
             <button
                 type="submit"
